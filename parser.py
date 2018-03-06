@@ -3,15 +3,15 @@ from collections import Counter
 import csv
 
 def reader(filename):
-	regexp = r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}' #Create pattern re for parser log file
+	regexp = r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}' #Create pattern re for parse Apache log file - match all IP addresses
 	
-	with open(filename) as f:             
+	with open(filename) as f:             		#Open log file and assign it to f variable
 		log = f.read()                      
-		ips_list = re.findall(regexp, log)  
+		ips_list = re.findall(regexp, log)  	#Create ips_list and findall IP inside log file
 		
 	return ips_list;
 	
-def count(ips_list):
+def count(ips_list):							#Calculate the number of IP address. 
 	return(Counter(ips_list))
 	
 	
